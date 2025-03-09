@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Bienvenue {{ request.user.username }} !</h1>
+{#    <button type="button" role="button" onclick="location.href='{% url 'logout' %}'">Se déconnecter</button>#}
+{#    <a href="{% url 'logout' %}">Se déconnecter</a>#}
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" role="button">Se déconnecter</button>
+    </form>
+{% endblock content %}
